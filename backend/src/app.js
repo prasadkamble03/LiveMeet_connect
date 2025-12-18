@@ -27,7 +27,7 @@ app.use("/api/v1/users", userRoutes);
 
 const start = async () => {
     app.set("mongo_user")
-    const connectionDb = await mongoose.connect(process.env.MONGODB_URL);
+    const connectionDb = await mongoose.connect("mongodb+srv://prasadkamble699_db_user:7HpZzfT1i2fWVmUc@cluster0.wonvvnp.mongodb.net/videoconference")
 
     console.log(`MONGO  DB Connected Succesfully `)
     server.listen(app.get("port"), () => {
