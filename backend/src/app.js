@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import userRoutes from "./routes/users.routes.js";
+import userRoutes from "./routes/users.routes.js"; // make sure filename matches
 import { connectToSocket } from "./controllers/socketManager.js";
 
 dotenv.config();
@@ -17,9 +17,14 @@ const io = connectToSocket(server);
 
 // Middlewares
 app.set("port", process.env.PORT || 8000);
-app.use(cors());
+app.use(cors()); // allow all origins for now, can restrict later
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
+
+// Root route for testing backend deployment
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
 
 // Routes
 app.use("/api/v1/users", userRoutes);

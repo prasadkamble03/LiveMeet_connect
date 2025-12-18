@@ -8,11 +8,10 @@ import {
 
 const router = Router();
 
-app.get("/", (req, res) => {
+// ✅ Health check route
+router.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
-
-
 
 // Auth routes
 router.post("/login", login);
