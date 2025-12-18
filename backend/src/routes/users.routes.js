@@ -8,6 +8,12 @@ import {
 
 const router = Router();
 
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
+
+
 // Auth routes
 router.post("/login", login);
 router.post("/register", register);
